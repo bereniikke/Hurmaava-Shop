@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz@6..72&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Hurmaava Design</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Hurmaava Design</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Koti</a></li>
+                <li><a href="#">Kauppa</a></li>
+                <li><a href="#">Ota yhteyttä</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<main>
+    <div class="form-banner">
+        <h2>Näin tilaat itsellesi Hurmaavan vaatteen:</h2>
+        <div class="instructions-container">
+            <div class="instruction">
+            <img src="./images/numbers/1.jpg">
+            <p>TYYLI</p>
+            <p style="font-family: 'Sacramento', cursive; font-size: 1em; margin-top: 0.7em;">Voit valita joko kustomoidun takin tai liivin.</p>
+            </div>
+         <!--  <img class="arrow" src="./images/numbers/arrow.jpg"> --> 
+            <div class="instruction">
+                <img src="./images/numbers/2.jpg">
+            <p>KUSTOMOI</p>
+            <p style="font-family: 'Sacramento', cursive; font-size: 1em; margin-top: 0.7em;">Valitse kangas. Voit myös lähettää oman kankaan meille.</p>
+            </div>
+         <!-- <img class="arrow" src="./images/numbers/arrow.jpg"> -->  
+            <div class="instruction">
+                <img src="./images/numbers/3.jpg">
+            <p>TILAA</p> 
+            <p style="font-family: 'Sacramento', cursive; font-size: 1em; margin-top: 0.7em;">Otamme sinuun yhteyttä maksua varten.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="order-form-container">
+    
+        <div class="image-container">
+            <img src="./images/jacket.jpg" alt="" width="300px">
+        </div>
+        
+        <div class="form-container">
+           
+    <form id="order-form" action="/submit-order" method="post">
+        <!-- Product Type -->
+        <label for="productType">Tyyli:</label>
+        <select id="productType" name="productType" required onchange="calculateTotal()">
+        <option value="" data-price="0.00">Valitse tuote</option>
+        <option value="takki" data-price="100.00">Takki - 100.00€</option>
+        <option value="liivi" data-price="65.00">Liivi - 65.00€</option>
+        </select>
+        <br>
+        
+        <!-- Fabric -->
+        <label for="fabric">Kangas:</label>
+        <select id="fabric" name="fabric" required onchange="calculateTotal()">
+            <option value="" data-price="0.00">Valitse kangas</option>
+            <option value="pinkit kukat" data-price="10.00">Pinkki - 10.00€</option>
+            <option value="värikäs" data-price="15.00">Värikäs - 15.00€</option>
+            <option value="keltainen" data-price="12.00">Keltainen - 12.00€</option>
+            <option value="oma kangas" data-price="0.00">Oma kangas - 0.00€</option>
+        </select>
+        <br>
+        
+        <!-- Phone Number -->
+        <label for="phoneNumber">Puh:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" required>
+        <br>
+        
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+
+        <!--Price-->
+        <div class="total">
+            <h4>Tilauksesi:</h4>
+            <p>Työ:</p>
+            <p>Kangas:</p>
+            <p>Postikulut:</p>
+            <hr>
+            <p>Yhteensä</p>
+           
+        </div>
+
+        <!-- Submit Button -->
+        <div class="button-container">
+            <button type="submit">Lähetä tilaus</button>
+        </div>
+    </form>
+    </div>
+        </div>
+    </div>
+
+
+</main>
+
+<footer>
+    <p>&copy; Hurmaava Design Studio</p>
+</footer>
+
+
+    <script>
+       function calculateTotal() {
+        const productSelect = document.getElementById("productType");
+        const fabricSelect = document.getElementById("fabric");
+        const totalDiv = document.querySelector(".total");
+        const productPrice = parseFloat(productSelect.options[productSelect.selectedIndex].getAttribute("data-price"));
+        const fabricPrice = parseFloat(fabricSelect.options[fabricSelect.selectedIndex].getAttribute("data-price"));
+        const shippingPrice = 6.9; // Shipping cost
+
+        const totalPrice = productPrice + fabricPrice + shippingPrice;
+
+    
+        totalDiv.innerHTML = `
+        <h3>Tilauksen yhteishinta:</h3>
+        <p>Työ: ${productPrice.toFixed(2)}€</p>
+        <p>Kangas: ${fabricPrice.toFixed(2)}€</p>
+        <p>Postikulut: ${shippingPrice.toFixed(2)}€</p>
+        <hr>
+        <p>Yhteensä ${totalPrice.toFixed(2)}€</p>
+       
+    `;
+    }
+
+        
+    </script>
+        
+</body>
+</html>

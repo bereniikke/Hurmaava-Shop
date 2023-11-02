@@ -1,0 +1,215 @@
+
+/* #f8f7f4; */
+
+
+
+body {
+    background-color: white;
+    color:#333;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Newsreader', serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    background-color: white;
+    margin: 2em;
+}
+
+/*HEADER*/
+
+header {
+    background-image: url('./images/taustakuva.png');
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f7f4; 
+    color: #333;
+    width: 100%;
+    padding: 0; 
+}
+
+header h1 {
+    margin: 0.3em 0; 
+    padding: 0;
+    font-weight: normal;
+}
+
+.logo {
+    font-family: 'Sacramento', cursive;
+    margin-left: 1.2em;
+    font-size: 1.2em;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 1.2em;
+}
+
+nav li {
+    margin-right: 3em;
+}
+
+nav a {
+    text-decoration: none;
+    color:  #333;  
+}
+
+/*FORM*/
+
+
+.form-banner {
+    font-family: 'Newsreader', serif;
+    font-size: 2em;
+    text-align: center;
+    margin: 0;
+}
+
+.form-banner h2 {
+    font-weight: normal;
+    margin-bottom: 2em;
+    letter-spacing: 2px;
+}
+
+.instructions-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: baseline;
+    margin-bottom: 2em;
+
+}
+
+.instructions-container img {
+    width: 1.8em;
+    height: 1.8em;
+    margin: 0;
+}
+
+.instruction {
+    width: 6em;
+    margin: 0 2em 0 2em;
+
+    padding: 0.3em;
+    text-align:center;
+    align-self: auto;
+    border-radius: 2%;
+
+}
+
+
+.instruction p {
+    margin: 0.3em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+
+}
+
+.img.arrow {
+    justify-self: center;
+}
+
+.order-form-container {
+    display: flex;
+    margin-bottom: 10em;
+}
+
+.order-form-container img {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.image-container {
+    flex: 1; 
+    padding: 20px;
+    max-width: 400px;
+}
+
+.form-container {
+    flex: 2; /* The right column takes up two-thirds of the space */
+    padding: 20px; /* Adjust the padding as needed */
+}
+
+label {
+    display: block;
+    margin-bottom: 0.6em;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;;
+}
+
+input,
+select {
+    margin-bottom: 0.6em;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2em;
+    font-family: 'Newsreader', serif;
+}
+
+
+.total h4 {
+    margin: 1em 0 0 0;
+    padding: 0.2em;
+}
+
+.total p {
+    margin: 0;
+    padding: 0.2em;
+}
+
+hr {
+  margin:0;
+  padding:0;
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+button[type="submit"] {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    margin: 0.8em;
+    background-color: transparent; 
+    border: none; 
+
+    padding: 0;
+    cursor: pointer; 
+}
+
+button[type="submit"]:hover {
+    
+}
+
+
+/*FOOTER*/
+
+footer {
+    background-image: url('./images/taustakuva.png');
+    font-family: 'Sacramento', cursive;
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+    padding:0;
+    margin-top: 5em;
+    width: 100%;
+    position: fixed; 
+    bottom: 0;
+}

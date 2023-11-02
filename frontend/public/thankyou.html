@@ -3,19 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz@6..72&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Kiitos tilauksestanne!</title>
 </head>
 <body>
-    <h1>Kiitos tilauksestanne!</h1>
-    <p>Tilauksenne:</p>
-    <p>Tuote: {productType}</p>
-    <p>Kangas: {fabric}</p>
-    <p>Yhteishinta: {totalCost} €</p>
-    <p>Puh: {phoneNumber}</p>
-    <p>Email: {email}</p>
 
-    <br/>
-    <h2>Ohjeet maksua varten:</h2>
-    <p>...</p>
+    <header>
+        <div class="logo">
+            <h1>Hurmaava Design</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Koti</a></li>
+                <li><a href="#">Kauppa</a></li>
+                <li><a href="#">Ota yhteyttä</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="thankyou-container">
+        <h1>Kiitos tilauksestanne!</h1>
+        <h2>Tilauksenne:</h2>
+        <p>Tuote: {productType}</p>
+        <p>Kangas: {fabric}</p>
+        <p>Yhteishinta: {totalCost} €</p>
+        <br>
+        <h2>Laskutustiedot:</h2>
+        <p>Puh: {phoneNumber}</p>
+        <p>Email: {email}</p>
+    </div>
+
+    <div class="payment-info-container">
+        <h2>Ohjeet maksua varten:</h2>
+        <p>Seuratkaa sähköpostianne. Maksuohjeet lähetetään teille seuraavana arkipäivänä.</p>
+        <p>Jos maksuohjeita ei kuulu, tarkistattehan myös roskapostilaatikkonne.</p>
+        <p>Ottakaa tarvittaessa meihin yhteyttä sivun ylälaidasta löytyvän "Ota yhteyttä" napin kautta. </p>
+        <p>Maksun suoritettuanne, ryhdymme oitis valmistamaan Hurmaavaa vaatettanne. Valmistuksessa menee 1-2 viikkoa.</p>
+        <p>Lähetämme teille sähköpostilla postin seurantakoodin, kun Hurmaava vaatteenne on postitettu.</p>
+
+        <h2>Kiitos kun tuet pienyrittäjää! &#9829;</h2>
+    </div>
+
+    <footer>
+        <p>&copy; Hurmaava Design Studio</p>
+    </footer>
+
 </body>
 </html>

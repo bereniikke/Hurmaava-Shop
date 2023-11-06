@@ -41,7 +41,9 @@ Replace "your-mongodb-uri-here" with your actual MongoDB connection string.
 
 Once you have installed the required Node modules and configured your database, you can start the application with the following command:
 
+```javascript
 npm start
+```
 
 Your web shop app should now be running locally. Access it by opening a web browser and navigating to:
 

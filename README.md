@@ -19,9 +19,9 @@ git clone https://github.com/bereniikke/Hurmaava-Shop
 
 
 4. **Install required Node module:**
-
+```javascript
 npm install
-
+```
 
 
 ## Database Configuration

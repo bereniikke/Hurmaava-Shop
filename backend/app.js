@@ -1,9 +1,12 @@
 const express = require('express');
 const { run } = require('./connect');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser'); // For parsing form data
+const bodyParser = require('body-parser'); 
+const env = require('../env');
 
-mongoose.connect('mongodb+srv://lauraelfving:30lXJEEtUx1lt37B@orders.tugrgb1.mongodb.net/my-web-shop?retryWrites=true&w=majority', {
+const mongodbUri = env.MONGODB_URI;
+
+mongoose.connect(mongodbUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -63,7 +66,7 @@ function calculateFabricPrice(fabric) {
 // Define a route for form submissions
 app.post('/submit-order', async (req, res) => {
   try {
-    const { productType, fabric, phoneNumber, email } = req.body;
+    const { productType, fabric, phoneNumber, email, size } = req.body; // Add size to the destructuring
 
     // Calculate the total price
     const productPrice = calculateProductPrice(productType);
@@ -71,10 +74,11 @@ app.post('/submit-order', async (req, res) => {
     const shippingCost = 6.90;
     const totalCost = productPrice + fabricPrice + shippingCost;
 
-    // Create a new Order instance and save only the total price to the database
+    // Create a new Order instance and save all details to the database
     const newOrder = new Order({
       productType,
       fabric,
+      size,
       phoneNumber,
       email,
       totalCost,
@@ -87,6 +91,7 @@ app.post('/submit-order', async (req, res) => {
     const orderDetails = {
       productType: savedOrder.productType,
       fabric: savedOrder.fabric,
+      size: savedOrder.size,
       phoneNumber: savedOrder.phoneNumber,
       email: savedOrder.email,
       totalCost: totalCost,
@@ -97,6 +102,7 @@ app.post('/submit-order', async (req, res) => {
     const htmlTemplate = fs.readFileSync('../frontend/public/thankyou.html', 'utf8');
     const formattedHTML = htmlTemplate.replace(/{productType}/g, orderDetails.productType)
       .replace(/{fabric}/g, orderDetails.fabric)
+      .replace(/{size}/g, orderDetails.size) 
       .replace(/{phoneNumber}/g, orderDetails.phoneNumber)
       .replace(/{email}/g, orderDetails.email)
       .replace(/{totalCost}/g, orderDetails.totalCost);
@@ -107,6 +113,7 @@ app.post('/submit-order', async (req, res) => {
     res.status(500).json({ error: 'Could not save the order' });
   }
 });
+
 
 
 // Start the Express server

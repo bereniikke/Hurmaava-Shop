@@ -140,26 +140,28 @@ nav a {
 
 .form-container {
     flex: 2; /* The right column takes up two-thirds of the space */
-    padding: 20px; /* Adjust the padding as needed */
+    padding: 8px; /* Adjust the padding as needed */
 }
 
 label {
     display: block;
-    margin-bottom: 0.6em;
+    margin-bottom: 0.2em;
     width: 100%;
     text-transform: uppercase;
     font-family: 'Poppins', sans-serif;;
 }
 
+
+
+
 input,
 select {
-    margin-bottom: 0.6em;
-    width: 100%;
-    padding: 10px;
-    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    width: 90%;
+    padding: 7px;
+    font-size: 0.9em;
     font-family: 'Newsreader', serif;
 }
-
 
 .total h4 {
     margin: 1em 0 0 0;

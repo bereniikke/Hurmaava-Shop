@@ -31,6 +31,7 @@
     </header>
 
 <main>
+
     <div class="form-banner">
         <h2>Näin tilaat itsellesi Hurmaavan vaatteen:</h2>
         <div class="instructions-container">
@@ -55,73 +56,86 @@
     </div>
 
     <div class="order-form-container">
-    
-        <div class="image-container">
-            <img src="./images/jacket.jpg" alt="" width="300px">
+        
+        <div id="product-img-container">
+
+            <img id="featured" src="./images/takki.JPG">
+
+            <div id="slide-wrapper">
+                <img id="slideLeft" class="arrow" src="./images/arrow/left.jpg">
+
+                <div id="slider">
+                    <img  class="thumbnail active" src="./images/takki.JPG">
+                    <img class="thumbnail" src="./images/liivi.JPG">
+                    <img class="thumbnail" src="./images/pinkitkukat.jpg">
+                    <img class="thumbnail" src="./images/värikäs.jpg">
+                    <img class="thumbnail" src="./images/keltainen.jpeg">
+                </div>
+
+                <img id="slideRight" class="arrow" src="./images/arrow/right.jpg">
+            </div>
+
         </div>
         
         <div class="form-container">
            
-    <form id="order-form" action="/submit-order" method="post">
-        <!-- Product Type -->
-        <label for="productType">Tyyli:</label>
-        <select id="productType" name="productType" required onchange="calculateTotal()">
-        <option value="" data-price="0.00">Valitse tuote</option>
-        <option value="takki" data-price="100.00">Takki - 100.00€</option>
-        <option value="liivi" data-price="65.00">Liivi - 65.00€</option>
-        </select>
-        <br>
-        
-        <!-- Fabric -->
-        <label for="fabric">Kangas:</label>
-        <select id="fabric" name="fabric" required onchange="calculateTotal()">
-            <option value="" data-price="0.00">Valitse kangas</option>
-            <option value="pinkit kukat" data-price="10.00">Pinkki - 10.00€</option>
-            <option value="värikäs" data-price="15.00">Värikäs - 15.00€</option>
-            <option value="keltainen" data-price="12.00">Keltainen - 12.00€</option>
-            <option value="oma kangas" data-price="0.00">Oma kangas - 0.00€</option>
-        </select>
-        <br>
+            <form id="order-form" action="/submit-order" method="post">
+                <!-- Product Type -->
+                <label for="productType">Tyyli:</label>
+                <select id="productType" name="productType" required onchange="calculateTotal()">
+                <option value="" data-price="0.00">Valitse tuote</option>
+                <option value="takki" data-price="100.00">Takki - 100.00€</option>
+                <option value="liivi" data-price="65.00">Liivi - 65.00€</option>
+                </select>
+                <br>
+                
+                <!-- Fabric -->
+                <label for="fabric">Kangas:</label>
+                <select id="fabric" name="fabric" required onchange="calculateTotal()">
+                    <option value="" data-price="0.00">Valitse kangas</option>
+                    <option value="pinkit kukat" data-price="10.00">Pinkit kukat - 10.00€</option>
+                    <option value="värikäs" data-price="15.00">Värikäs - 15.00€</option>
+                    <option value="keltainen" data-price="12.00">Keltainen - 12.00€</option>
+                    <option value="oma kangas" data-price="0.00">Oma kangas - 0.00€</option>
+                </select>
+                <br>
 
-        <!-- Size-->
+                <!-- Size-->
 
-        <label for="size">Koko:</label>
-        <select id="size" name="size" required>
-            <option value="ONE SIZE">ONE SIZE</option>
-        </select>
-        <br>
-        
-        <!-- Phone Number -->
-        <label for="phoneNumber">Puh:</label>
-        <input type="tel" id="phoneNumber" name="phoneNumber" required>
-        <br>
-        
-        <!-- Email -->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br>
+                <label for="size">Koko:</label>
+                <select id="size" name="size" required>
+                    <option value="ONE SIZE">ONE SIZE</option>
+                </select>
+                <br>
+                
+                <!-- Phone Number -->
+                <label for="phoneNumber">Puh:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                <br>
+                
+                <!-- Email -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
 
-        <!--Price-->
-        <div class="total">
-            <h4>Tilauksesi:</h4>
-            <p>Työ:</p>
-            <p>Kangas:</p>
-            <p>Postikulut:</p>
-            <hr>
-            <p>Yhteensä</p>
-           
+                <!--Price-->
+                <div class="total">
+                    <h4>Tilauksesi:</h4>
+                    <p>Työ:</p>
+                    <p>Kangas:</p>
+                    <p>Postikulut:</p>
+                    <hr>
+                    <p>Yhteensä</p>
+                
+                </div>
+
+                <!-- Submit Button -->
+                <div class="button-container">
+                    <button type="submit">Lähetä tilaus</button>
+                </div>
+            </form>
         </div>
-
-        <!-- Submit Button -->
-        <div class="button-container">
-            <button type="submit">Lähetä tilaus</button>
-        </div>
-    </form>
     </div>
-        </div>
-    </div>
-
-
 </main>
 
 <footer>
@@ -129,7 +143,8 @@
 </footer>
 
 
-    <script>
+<script type="text/javascript">
+
        function calculateTotal() {
         const productSelect = document.getElementById("productType");
         const fabricSelect = document.getElementById("fabric");
@@ -148,12 +163,42 @@
         <p>Postikulut: ${shippingPrice.toFixed(2)}€</p>
         <hr>
         <p>Yhteensä ${totalPrice.toFixed(2)}€</p>
-       
-    `;
+        `;
+       }
+
+
+
+    let thumbnails = document.getElementsByClassName('thumbnail')
+
+    let activeImages = document.getElementsByClassName('active')
+
+    for (var i=0; i<thumbnails.length; i++){
+        
+        thumbnails[i].addEventListener('mouseover', function() {
+            console.log(activeImages)
+
+            if (activeImages.length > 0) {
+                activeImages[0].classList.remove('active')
+            }
+
+            this.classList.add('active')
+            document.getElementById('featured').src = this.src
+        })
     }
 
-        
-    </script>
+    let buttonRight = document.getElementById('slideRight');
+    let buttonLeft = document.getElementById('slideLeft');
+
+    buttonLeft.addEventListener('click', function(){
+        document.getElementById('slider').scrollLeft -= 180
+    })
+
+    buttonRight.addEventListener('click', function(){
+        document.getElementById('slider').scrollRight += 180
+    })
+
+
+</script>
         
 </body>
 </html>

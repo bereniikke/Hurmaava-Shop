@@ -11,10 +11,11 @@ Welcome to the beta version of our web shop app! To get started, please follow t
 
 1. **Clone this repository to your local machine**
 
+```javascript
 git clone https://github.com/bereniikke/Hurmaava-Shop
+```
 
-
-3. **Navigate to the project's directory**
+2. **Navigate to the project's directory**
 
 
 4. **Install required Node module:**
@@ -47,7 +48,8 @@ npm start
 
 Your web shop app should now be running locally. Access it by opening a web browser and navigating to:
 
+```javascript
 http://localhost:3000
-
+```
 
 If you have any questions or feedback regarding the web shop app, please feel free to contact us. We appreciate your input!
